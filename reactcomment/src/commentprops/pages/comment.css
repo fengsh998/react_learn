@@ -1,0 +1,90 @@
+.commentHead {
+    background: #778899;
+    font-size: 50px;
+    height: 160px;
+    display: flex;
+    align-items: center;
+}
+
+.commentContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.commentHead span {
+    margin-left: 10%;
+}
+
+.commentAddContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 20%;
+    margin-right: 20px;
+    margin-top: 40px;
+}
+
+.inputname {
+    border-radius: 3px;
+    border-width: 1px;
+    height: 24px;
+}
+
+.inputcomment {
+    border-radius: 3px;
+    border-width: 1px;
+    height: 300px;
+}
+
+.row {
+    display: flex;
+    justify-content: flex-start;
+    height: 30px;
+    margin-top: 10px;
+}
+
+.buttonrow {
+    display: flex;
+    position: relative;
+    align-items: right;
+}
+
+.buttonstyle {
+    border-radius: 3px;
+    height: 30px;
+    width: 60px;
+    margin-top: 20px;
+}
+
+.commentlist {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    margin-top: 50px;
+    width: 50%;
+    
+}
+
+.commentItemContainer {
+    border-radius:3px;
+    border: 1px solid rgb(204, 207, 204);
+    margin-top: 8px;
+    margin-bottom: 40px;
+}
+
+.commenttitle {
+    display: flex;
+}
+
+.commentItem {
+    text-align: left;
+    margin-top:10px;
+    margin-left: 10px;
+}
+
+.commentItemLine {
+    width: 96%;
+    border: 0;
+    height: 1px;
+    *margin: 0;
+}
