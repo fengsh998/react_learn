@@ -1,3 +1,8 @@
 .App {
-    font-size: .875rem;
+    font-size: 1rem;
+}
+
+.itembox {
+    width: 5rem;
+    height: 5rem;
 }
