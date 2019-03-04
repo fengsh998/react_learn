@@ -37,7 +37,7 @@ class App extends Component {
             </code>
           </div>
           <div className="pb-5">
-            <span className="itembox border border-primary">primary</span>
+            <span className="itembox border border-primary bg-gradient-primary">primary</span>
             <span className="itembox border border-secondary">secondary</span>
             <span className="itembox border border-success">success</span>
             <span className="itembox border border-danger">danger</span>
