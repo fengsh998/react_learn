@@ -42,7 +42,30 @@ module.exports = {
             exclude: [
                 path.resolve(__dirname, './node_modules')
             ]
-        }]
+        },
+        {
+            test: /\.(css)$/,
+            use: [
+                {
+                    loader: 'style-loader'
+                },
+                {
+                    loader: 'css-loader',
+                    options: {
+                        url: true,
+                        sourceMap: true,
+                    }
+                }
+            ]
+        },
+        {
+            test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+            loader: 'url-loader',
+            options: {
+                limit: 10000
+            }
+        }
+        ]
     },
     devServer: {
         contentBase: path.join(__dirname, "dist"),
