@@ -5,7 +5,7 @@ import Pagination from './pagination';
 export default class Movies extends Component {
     state = {
         movies: getMovies(),
-        pagesize: 4
+        pageSize: 4
     }
 
     ///删除事件
@@ -14,6 +14,10 @@ export default class Movies extends Component {
         this.setState({
             movies
         });
+    }
+
+    handlePageChange = (page) => {
+        console.log(page);
     }
 
     render() {
@@ -47,7 +51,8 @@ export default class Movies extends Component {
                         ))}
                     </tbody>
                 </table>
-                <Pagination itemsCount={count} ></Pagination>
+                <Pagination itemsCount={count} pageSize={this.state.pageSize}
+                    onPageChange={this.handlePageChange}></Pagination>
             </React.Fragment>
         )
     }
