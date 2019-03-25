@@ -1,17 +1,23 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
+import PropTypes from 'prop-types';
 import _ from 'lodash'
 
-const pagination = (props) => {
-    const { itemsCount, pageSize } = props;
-    const pagesCount = itemsCount / pageSize;
+const Pagination = (props) => {
+    const { itemsCount, currentPage, pageSize } = props;
+    const pagesCount = Math.ceil(itemsCount / pageSize);
+
+    //如果只有一页就不要显示分页组件了
+    if (pagesCount === 1) return null;
+
     const pages = _.range(1, pagesCount + 1);
     return (
         <nav>
             <ul className="pagination">
                 {
                     pages.map(page => (
-                        <li key={page} className="page-item">
-                            <a className="page-link">{page}</a>
+                        <li key={page} className={page === currentPage ? 'page-item active' : 'page-item'} >
+                            <a className="page-link" onClick={() => props.onPageChange(page)}>{page}</a>
                         </li>
                     ))
                 }
@@ -20,5 +26,11 @@ const pagination = (props) => {
     )
 }
 
-export default pagination
+Pagination.prototype = {
+    itemsCount: PropTypes.number.isRequired,
+    pageSize: PropTypes.number.isRequired,
+    currentPage: PropTypes.number.isRequired,
+}
+
+export default Pagination
 
