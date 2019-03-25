@@ -13,12 +13,13 @@ export default class Movies extends Component {
         genres: [],
         pageSize: 4,
         currentPage: 1,
-        sortColumn: { path: "title", order: "asc" }
+        sortColumn: { path: "title", order: "asc" },
+        selectdGenre:{}
     }
 
     componentDidMount() {
         const genres = [{ _id: "", name: "全部" }, ...getGenres()];
-        this.setState({ movies: getMovies(), genres });
+        this.setState({ movies: getMovies(), genres ,selectdGenre:genres[0]});
     }
 
     ///删除事件
@@ -38,14 +39,14 @@ export default class Movies extends Component {
         this.setState({ selectdGenre: item, currentPage: 1 });
     }
 
-    handleSorted = (path) => {
-        
+    handleSorted = (sortColumn) => {
         this.setState({ sortColumn });
     }
 
     render() {
         const { length: count } = this.state.movies;
         const { pageSize, currentPage, selectdGenre, sortColumn, movies: AllMovies } = this.state;
+        
         if (count === 0)
             return <p>there are no movies in the database!</p>
 
@@ -68,6 +69,7 @@ export default class Movies extends Component {
                     <div className="col-9">
                         <p>Showing {filtered.length} Movies in thd database</p>
                         <MoviesTable movies={movies}
+                            sortColumn={this.state.sortColumn}
                             onDeleted={this.handleDelete}
                             onSorted={this.handleSorted}
                         >
